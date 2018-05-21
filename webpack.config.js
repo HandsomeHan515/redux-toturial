@@ -17,16 +17,19 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
+        include: path.resolve(__dirname, 'src'),
+        exclude: path.resolve(__dirname, 'node_modules')
       },
       {
         test: /\.(css|scss)$/,
         use: ["style-loader", {
           loader: "css-loader",
           options: {
-            minimize: true
+            minimize: true,
+            importLoaders: 1
           }
         }, "postcss-loader", "sass-loader"],
-        exclude: /node_modules/
+        exclude: path.resolve(__dirname, 'node_modules')
       }
     ]
   },
