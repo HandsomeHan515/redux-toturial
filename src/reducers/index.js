@@ -19,8 +19,18 @@ const banners = (state = [1, 2, 3, 4], action) => {
   }
 }
 
+const list = (state = { a: '111', b: '222' }, action) => {
+  switch (action.type) {
+    case actionTypes.GET_LIST:
+      return state;
+
+    default:
+      return state;
+  }
+}
+
 let rootReducer = combineReducers({
-  ads, banners
+  ads, banners, list
 })
 
 export default rootReducer;
