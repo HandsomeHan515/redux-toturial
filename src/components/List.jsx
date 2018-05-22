@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class List extends Component {
-  componentWillUpdate() {
-    console.log(123);
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('this props: %o, next props: %o, next state: %o', this.props, nextProps, nextState)
+    if (this.props.title === nextProps.title) {
+      return false;
+    } else {
+      return true;
+    }
   }
+
   render() {
     console.log(this.props);
     return (
