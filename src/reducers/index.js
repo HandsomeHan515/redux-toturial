@@ -11,6 +11,7 @@ const mockAds = [
 // 不能直接修改 state，不能直接修改 state
 
 const ads = (state = mockAds, action) => {
+  console.log(state, action);
   let tmpState = state.slice();
   switch (action.type) {
     case actionTypes.GET_ADS:

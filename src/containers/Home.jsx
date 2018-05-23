@@ -64,6 +64,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('state', state);
   return {
     list: state.list,
     ads: state.ads
