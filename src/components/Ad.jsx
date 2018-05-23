@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 class Ad extends PureComponent {
   // shouldComponentUpdate(nextProps, nextState) {
   //   // console.log('this props: %o, next props: %o, next state: %o', this.props, nextProps, nextState)
-  //   if (this.props.name === nextProps.name) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
+  //   return this.props.name === nextProps.name;
   // }
 
   render() {
