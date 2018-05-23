@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { List, Ad } from '../components';
+import { List, Ad, Header } from '../components';
 import data from '../server';
 import { store } from '../index';
 import { updateAd, delAd, createAd } from '../actions';
@@ -39,25 +39,28 @@ class Home extends Component {
 
     return (
       <div>
-        <List title={list.a} />
-        <List title={list.b} />
-        <button onClick={() => {
-          list.b = (parseInt(list.b, 10) + 111).toString();
-          this.setState({ list })
-        }}>更改数据</button>
-        <div>
-          <button onClick={this.handleClickCreate}>新建</button>
-          {
-            ads.map((item, index) => {
-              return (
-                <div key={item.id} >
-                  <Ad name={item.name} />
-                  <button onClick={() => this.handleClick(index)}>编辑</button>
-                  <button onClick={() => this.handleClickDelete(item)}>删除</button>
-                </div>
-              );
-            })
-          }
+        <Header />
+        <div style={{ marginTop: 100 }}>
+          <List title={list.a} />
+          <List title={list.b} />
+          <button onClick={() => {
+            list.b = (parseInt(list.b, 10) + 111).toString();
+            this.setState({ list })
+          }}>更改数据</button>
+          <div>
+            <button onClick={this.handleClickCreate}>新建</button>
+            {
+              ads.map((item, index) => {
+                return (
+                  <div key={item.id} >
+                    <Ad name={item.name} />
+                    <button onClick={() => this.handleClick(index)}>编辑</button>
+                    <button onClick={() => this.handleClickDelete(item)}>删除</button>
+                  </div>
+                );
+              })
+            }
+          </div>
         </div>
       </div>
     );
