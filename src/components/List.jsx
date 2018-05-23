@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class List extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('this props: %o, next props: %o, next state: %o', this.props, nextProps, nextState)
+    // console.log('this props: %o, next props: %o, next state: %o', this.props, nextProps, nextState)
     if (this.props.title === nextProps.title) {
       return false;
     } else {

@@ -19,8 +19,8 @@ class Home extends Component {
     store.dispatch(updateAd(ads[index]));
   }
 
-  handleClickDelete = index => {
-    store.dispatch(delAd(index))
+  handleClickDelete = item => {
+    store.dispatch(delAd(item))
   }
 
   render() {
@@ -42,7 +42,7 @@ class Home extends Component {
                 <div key={item.id} >
                   <Ad name={item.name} />
                   <button onClick={() => this.handleClick(index)}>编辑</button>
-                  <button onClick={() => this.handleClickDelete(index)}>删除</button>
+                  <button onClick={() => this.handleClickDelete(item)}>删除</button>
                 </div>
               );
             })

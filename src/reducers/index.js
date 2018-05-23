@@ -27,8 +27,8 @@ const ads = (state = mockAds, action) => {
       return tmpState;
 
     case actionTypes.DEL_AD:
-      tmpState.splice(action.payload, 1)
-      return [...tmpState];
+      tmpState = tmpState.filter(item => item.id != action.payload.id);
+      return tmpState;
 
     default:
       return state;
