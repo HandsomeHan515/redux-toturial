@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { List, Ad } from '../components';
 import data from '../server';
 import { store } from '../index';
-import { updateAd, delAd } from '../actions';
+import { updateAd, delAd, createAd } from '../actions';
 
 class Home extends Component {
   constructor(props) {
@@ -20,7 +20,16 @@ class Home extends Component {
   }
 
   handleClickDelete = item => {
-    store.dispatch(delAd(item))
+    store.dispatch(delAd(item));
+  }
+
+  handleClickCreate = () => {
+    let length = this.props.ads.length + 1;
+    let payload = {
+      id: length,
+      name: (length * 111).toString()
+    }
+    store.dispatch(createAd(payload));
   }
 
   render() {
@@ -36,6 +45,7 @@ class Home extends Component {
           this.setState({ list })
         }}>更改数据</button>
         <div>
+          <button onClick={this.handleClickCreate}>新建</button>
           {
             ads.map((item, index) => {
               return (

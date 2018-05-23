@@ -16,6 +16,9 @@ const ads = (state = mockAds, action) => {
     case actionTypes.GET_ADS:
       return state;
 
+    case actionTypes.CREATE_AD:
+      return [...state, action.payload]
+
     case actionTypes.UPDATE_AD:
       let { payload } = action;
       tmpState.map(item => {
