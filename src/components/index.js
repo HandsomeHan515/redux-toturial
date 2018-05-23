@@ -1,3 +1,4 @@
 import List from './List';
+import Ad from './Ad';
 
-export { List }
+export { List, Ad }

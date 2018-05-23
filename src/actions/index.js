@@ -1,19 +1,32 @@
 export const GET_ADS = 'GET_ADS';
+export const UPDATE_AD = 'UPDATE_AD';
+export const DEL_AD = 'DEL_AD';
 
 export const GET_LIST = 'GET_LIST';
 export const UPDATE_LIST = 'UPDATE_LIST';
 
 export const getAds = payload => ({
   type: GET_ADS,
-  ...payload
+  payload
 });
+
+export const updateAd = payload => ({
+  type: UPDATE_AD,
+  payload
+});
+
+export const delAd = payload => ({
+  type: DEL_AD,
+  payload
+})
+
 
 export const getList = payload => ({
   type: GET_LIST,
-  ...payload
+  payload
 });
 
 export const updateList = payload => ({
   type: UPDATE_LIST,
-  ...payload
+  payload
 })
