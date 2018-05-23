@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { List, Ad } from '../components';
 import data from '../server';
@@ -29,7 +30,7 @@ class Home extends Component {
       id: length,
       name: (length * 111).toString()
     }
-    store.dispatch(createAd(payload));
+    this.props.createAd(payload);
   }
 
   render() {
@@ -64,13 +65,19 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state', state);
   return {
     list: state.list,
     ads: state.ads
   }
 }
 
+const mapDispatchToProps = dispatch => (
+  bindActionCreators({
+    createAd
+  }, dispatch)
+)
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Home);
