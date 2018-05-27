@@ -41,6 +41,6 @@ module.exports = {
       template: __dirname + '/public/index.html'
     }),
 
-    new ExtractTextPlugin('bundle.[hash:8].css')
+    new ExtractTextPlugin('style/bundle.[hash:8].css')
   ]
 }
