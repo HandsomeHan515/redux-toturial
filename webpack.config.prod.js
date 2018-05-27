@@ -1,17 +1,38 @@
 var path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var package = require('./package.json')
 
 module.exports = {
   mode: "production",
-  entry: './src/index.jsx',
-  output: {
-    filename: 'bundle.[hash:8].js',
-    path: path.resolve(__dirname, 'dist')
+  entry: {
+    app: './src/index.jsx',
+    vendor: Object.keys(package.dependencies)
   },
+
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].[hash:8].js'
+  },
+
+  // webpack 4.x
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: "initial",
+          test: "vendor",
+          name: "vendor", // 使用 vendor 入口作为公共部分
+          enforce: true,
+        },
+      },
+    },
+  },
+
   resolve: {
     extensions: [".js", ".jsx"]
   },
+
   module: {
     rules: [
       {
