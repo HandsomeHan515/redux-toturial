@@ -42,6 +42,5 @@ module.exports = {
     }),
 
     new ExtractTextPlugin('bundle.[hash:8].css')
-  ],
-  devtool: "source-map",
+  ]
 }

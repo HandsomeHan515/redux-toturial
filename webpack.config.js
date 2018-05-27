@@ -40,10 +40,12 @@ module.exports = {
     })
   ],
 
+  devtool: "source-map",
+
   devServer: {
     historyApiFallback: true,
     inline: true,
-    // hot: true, 设置后会导致编译不出来，webpack默认已开启热更新
+    // hot: true, 设置后会导致编译不出来，webpack4 默认已开启热更新
     contentBase: path.resolve(__dirname, 'public'),
     open: true,
     port: 8080
