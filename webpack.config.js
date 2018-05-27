@@ -9,6 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
+    modules: [path.resolve(__dirname, 'node_modules')],
     extensions: [".js", ".jsx"]
   },
 
