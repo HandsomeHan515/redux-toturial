@@ -1,5 +1,6 @@
 var path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   mode: "production",
@@ -21,12 +22,16 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: ["style-loader", {
-          loader: "css-loader",
-          options: {
-            minimize: true
-          }
-        }, "postcss-loader", "sass-loader"],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: "css-loader",
+            options: {
+              minimize: true,
+              importLoaders: 1
+            }
+          }, "postcss-loader", "sass-loader"],
+        }),
         exclude: path.resolve(__dirname, 'node_modules')
       }
     ]
@@ -34,7 +39,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + '/public/index.html'
-    })
+    }),
+
+    new ExtractTextPlugin('bundle.[hash:8].css')
   ],
   devtool: "source-map",
 }
