@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { List, Ad, Header, Flower } from '../components';
 import data from '../server';
 import { store } from '../index';
-import { updateAd, delAd, createAd } from '../actions';
+import { updateAd, delAd, createAd, fetchFlowers } from '../actions';
 
 class Home extends Component {
   constructor(props) {
@@ -32,6 +32,11 @@ class Home extends Component {
     }
     this.props.createAd(payload);
   }
+
+  componentDidMount() {
+    this.props.fetchFlowers()
+  }
+
 
   render() {
     const { list } = this.state;
@@ -78,7 +83,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    createAd
+    createAd,
+    fetchFlowers
   }, dispatch)
 )
 

@@ -1,7 +1,4 @@
-const serviceDomain = 'https://flower.handsomehan.cn/v1/flowers';
+import address from '../address';
+import axios from 'axios';
 
-const api = {
-  flower: `${serviceDomain}/v1/flowers/`
-}
-
-export default api;
+export const getFlowers = axios.get(address.flower)
