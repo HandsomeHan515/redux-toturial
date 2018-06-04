@@ -6,6 +6,7 @@ import api from '../api';
 function* getFlowers(action) {
   try {
     const flowers = yield call(api.flower);
+    console.log('flowers', flowers);
     yield put({ type: 'FETCH_FLOWERS_SUCCESS', flowers });
   } catch (e) {
     yield put({ type: 'FETCH_FLOWERS_ERROR', message: e.message });

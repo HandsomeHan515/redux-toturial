@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { List, Ad, Header } from '../components';
+import { List, Ad, Header, Flower } from '../components';
 import data from '../server';
 import { store } from '../index';
 import { updateAd, delAd, createAd } from '../actions';
@@ -62,6 +62,8 @@ class Home extends Component {
             }
           </div>
         </div>
+
+        <Flower />
       </div>
     );
   }

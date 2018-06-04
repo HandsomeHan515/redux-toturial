@@ -38,3 +38,8 @@ export const updateList = payload => ({
 })
 
 export const FETCH_FLOWERS = 'FETCH_FLOWERS';
+
+export const fetchFlowers = payload => ({
+  type: FETCH_FLOWERS,
+  payload
+})
