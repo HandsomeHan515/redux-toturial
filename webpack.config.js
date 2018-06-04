@@ -1,9 +1,10 @@
 var path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+require("babel-polyfill");
 
 module.exports = {
   mode: "development",
-  entry: './src/index.jsx',
+  entry: ['babel-polyfill', './src/index.jsx'],
   output: {
     filename: 'bundle.[hash:8].js',
     path: path.resolve(__dirname, 'dist')
